@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CONTACT, NAV_LINKS } from "@/lib/site-data";
 import logoImg from "@/assets/logo.png";
@@ -62,13 +62,6 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <a
-              href={CONTACT.phoneHref}
-              className="hidden items-center gap-2 text-[13px] font-semibold tracking-wide text-[#1e293b] transition-colors hover:text-ember md:flex"
-            >
-              <Phone className="h-3.5 w-3.5 text-ember" strokeWidth={2.4} />
-              {CONTACT.phone}
-            </a>
-            <a
               href="#contact"
               className="hidden bg-ember px-5 py-2.5 text-[12px] font-bold tracking-[0.14em] text-white uppercase transition-colors duration-300 hover:bg-ember-deep sm:inline-block rounded-none shadow-xs"
             >
@@ -113,9 +106,6 @@ export function Navbar() {
             ))}
           </nav>
           <div className="space-y-3 text-white/70">
-            <a href={CONTACT.phoneHref} className="block text-lg font-semibold text-white">
-              {CONTACT.phone}
-            </a>
             <a href={`mailto:${CONTACT.email}`} className="block text-sm">
               {CONTACT.email}
             </a>
