@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowUpRight, Phone, MoveDown } from "lucide-react";
 import heroImg from "@/assets/hero-logistics.jpg";
 import { CONTACT, CORRIDORS } from "@/lib/site-data";
@@ -13,22 +13,8 @@ const MARKERS = [
 ];
 
 export function Hero() {
-  const [offset, setOffset] = useState(0);
   const [pointer, setPointer] = useState({ x: 0.5, y: 0.5 });
   const sectionRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    let frame = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => setOffset(window.scrollY));
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
 
   const onPointerMove = (e: React.PointerEvent<HTMLElement>) => {
     const rect = sectionRef.current?.getBoundingClientRect();
@@ -39,9 +25,6 @@ export function Hero() {
     });
   };
 
-  const clamped = Math.min(offset, 700);
-  const fade = Math.max(0, 1 - clamped / 520);
-
   return (
     <section
       id="top"
@@ -49,27 +32,24 @@ export function Hero() {
       onPointerMove={onPointerMove}
       className="relative min-h-[100svh] overflow-hidden bg-ink text-white"
     >
-      {/* Right-aligned Hero Image Display showing the FULL picture (Plane + Sea + Port) */}
-      <div
-        className="absolute top-1/2 right-4 lg:right-10 -translate-y-1/2 w-[90%] lg:w-[46%] xl:w-[44%] max-w-[650px] overflow-hidden rounded-2xl border border-white/15 bg-[#040912] shadow-2xl z-0"
-        style={{ transform: `translate3d(0, calc(-50% + ${clamped * 0.12}px), 0)` }}
-      >
+      {/* Expanded Hero Image (Out of rectangle frame) */}
+      <div className="absolute inset-y-0 right-0 w-full lg:w-[70%] xl:w-[65%] h-full overflow-hidden z-0">
         <img
           src={heroImg}
           alt="EVANYAG haulage truck at dusk with container terminal, cargo ship and freight aircraft"
           width={1920}
           height={1280}
-          className="w-full h-auto object-cover rounded-2xl"
+          className="h-full w-full object-cover object-center lg:object-right"
           fetchPriority="high"
         />
-        {/* Dark Gradient Overlay Fading Left Edge for Perfect Text Readability */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17]/85 via-[#070e17]/30 to-transparent" />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17]/60 via-transparent to-[#070e17]/40" />
+        {/* Gradient Overlay fading smooth left edge into dark background */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17] via-[#070e17]/70 to-transparent" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17] via-transparent to-[#070e17]/50" />
       </div>
 
-      {/* Global Section Dark Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070e17] via-[#070e17]/95 to-transparent lg:w-[55%] pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#070e17] to-transparent pointer-events-none" />
+      {/* Solid Left Side Overlay for Text Readability */}
+      <div className="absolute inset-y-0 left-0 w-full lg:w-[45%] bg-[#070e17] z-0 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#070e17] to-transparent pointer-events-none z-0" />
 
       <div
         className="pointer-events-none absolute -inset-40 opacity-70 transition-opacity duration-500"
@@ -109,7 +89,7 @@ export function Hero() {
           <span
             key={m.label}
             className="absolute flex items-center gap-2 animate-in fade-in fill-mode-both duration-1000"
-            style={{ left: `${m.x}%`, top: `${m.y}%`, animationDelay: `${900 + i * 180}ms`, opacity: fade }}
+            style={{ left: `${m.x}%`, top: `${m.y}%`, animationDelay: `${900 + i * 180}ms` }}
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember opacity-60" />
