@@ -120,9 +120,8 @@ export function ContactCta() {
             </div>
           </Reveal>
 
-          {/* Right Column: Submit Request Form Card */}
           <Reveal delay={150}>
-            <div className="border border-white/10 bg-[#09111c]/90 p-8 sm:p-10 shadow-2xl backdrop-blur-md">
+            <div className="border border-white/15 bg-[#09111c] p-8 sm:p-10 shadow-2xl">
               <h3 className="text-[11px] font-bold tracking-[0.2em] text-ember uppercase mb-8">
                 SUBMIT REQUEST
               </h3>

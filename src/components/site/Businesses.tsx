@@ -113,7 +113,7 @@ export function Businesses() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 bg-ink/80 px-3.5 py-1 font-display text-xl font-extrabold text-ember backdrop-blur-sm">
+                  <span className="absolute top-4 left-4 bg-ink border border-white/10 px-3.5 py-1 font-display text-xl font-extrabold text-ember">
                     {biz.index}
                   </span>
                 </div>

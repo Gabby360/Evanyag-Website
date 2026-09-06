@@ -9,7 +9,7 @@ export function Footer() {
           {/* Column 1: Brand */}
           <div className="space-y-6">
             <a href="#top" className="inline-block group" aria-label="EVANYAG home">
-              <div className="inline-flex items-center rounded-lg bg-white/95 px-3 py-2 shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
+              <div className="inline-flex items-center rounded-lg bg-white px-3 py-2 shadow-sm border border-white/20 transition-transform duration-300 group-hover:scale-[1.02]">
                 <img
                   src={logoImg}
                   alt="EVANYAG Company Limited Logo"

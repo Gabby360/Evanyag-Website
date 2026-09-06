@@ -39,7 +39,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 bg-[#e2e6eb] transition-all duration-300 border-b border-[#cbd5e1]/70 shadow-xs",
-          scrolled && !open ? "py-3 shadow-md bg-[#e2e6eb]/98 backdrop-blur-md" : "py-4",
+          scrolled && !open ? "py-3 shadow-md bg-[#e2e6eb]" : "py-4",
         )}
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-5 sm:px-8">

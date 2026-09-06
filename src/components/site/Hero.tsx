@@ -175,7 +175,7 @@ export function Hero() {
                 {CORRIDORS.map((c) => (
                   <li
                     key={c}
-                    className="border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-white/65 uppercase backdrop-blur-sm"
+                    className="border border-white/20 bg-ink-soft px-3 py-1.5 text-[10px] font-semibold tracking-[0.2em] text-white/80 uppercase"
                   >
                     {c}
                   </li>
@@ -193,9 +193,9 @@ export function Hero() {
               </a>
               <a
                 href={CONTACT.phoneHref}
-                className="group inline-flex items-center gap-3 border border-white/25 px-6 py-4 text-white backdrop-blur-sm transition-colors hover:border-white"
+                className="group inline-flex items-center gap-3 border border-white/30 bg-ink-soft px-6 py-4 text-white transition-colors hover:border-white hover:bg-ink"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors group-hover:bg-ember">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 transition-colors group-hover:bg-ember">
                   <Phone className="h-4 w-4" />
                 </span>
                 <span className="text-[12px] font-bold tracking-[0.14em] uppercase">
