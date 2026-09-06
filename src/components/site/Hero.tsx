@@ -32,19 +32,19 @@ export function Hero() {
       onPointerMove={onPointerMove}
       className="relative min-h-[100svh] overflow-hidden bg-ink text-white"
     >
-      {/* Expanded Hero Image (Out of rectangle frame) */}
-      <div className="absolute inset-y-0 right-0 w-full lg:w-[70%] xl:w-[65%] h-full overflow-hidden z-0">
+      {/* Full Hero Image (Uncropped display with smooth side gradient) */}
+      <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-full lg:w-[65%] xl:w-[60%] pointer-events-none overflow-hidden">
         <img
           src={heroImg}
           alt="EVANYAG haulage truck at dusk with container terminal, cargo ship and freight aircraft"
           width={1920}
           height={1280}
-          className="h-full w-full object-cover object-center lg:object-right"
+          className="w-full h-auto max-h-[92vh] object-contain object-right"
           fetchPriority="high"
         />
-        {/* Gradient Overlay fading smooth left edge into dark background */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17] via-[#070e17]/70 to-transparent" />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17] via-transparent to-[#070e17]/50" />
+        {/* Smooth Gradient Overlay fading left edge into background */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17] via-[#070e17]/40 to-transparent" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17] via-transparent to-[#070e17]/30" />
       </div>
 
       {/* Solid Left Side Overlay for Text Readability */}
