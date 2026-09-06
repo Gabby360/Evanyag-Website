@@ -32,24 +32,28 @@ export function Hero() {
       onPointerMove={onPointerMove}
       className="relative min-h-[100svh] overflow-hidden bg-ink text-white"
     >
-      {/* Full Hero Image (New User Provided Picture) */}
-      <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-full lg:w-[65%] xl:w-[60%] pointer-events-none overflow-hidden">
-        <img
-          src={heroImg}
-          alt="EVANYAG logistics operations - yellow and white haulage trucks, container vessel, and freight aircraft"
-          width={1920}
-          height={1280}
-          className="w-full h-auto max-h-[92vh] object-contain object-right"
-          fetchPriority="high"
-        />
-        {/* Soft edge gradient blend */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17] via-[#070e17]/30 to-transparent" />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17] via-transparent to-[#070e17]/20" />
+      {/* Full Hero Image Container with Prominent Gradient Overlays */}
+      <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-full lg:w-[70%] xl:w-[65%] pointer-events-none">
+        <div className="relative h-full w-full flex items-center justify-end overflow-hidden">
+          <img
+            src={heroImg}
+            alt="EVANYAG logistics operations - yellow and white haulage trucks, container vessel, and freight aircraft"
+            width={1920}
+            height={1280}
+            className="w-full h-auto max-h-[92vh] object-contain object-right"
+            fetchPriority="high"
+          />
+          {/* Strong, Smooth Left-to-Right Gradient fading from solid #070e17 across the image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070e17] via-[#070e17]/75 to-transparent pointer-events-none z-10" />
+          {/* Top Gradient Fade */}
+          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#070e17] via-[#070e17]/60 to-transparent pointer-events-none z-10" />
+          {/* Bottom Gradient Fade */}
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#070e17] via-[#070e17]/80 to-transparent pointer-events-none z-10" />
+        </div>
       </div>
 
-      {/* Solid Left Side Overlay for Text Readability */}
+      {/* Solid Left Side Background for Content */}
       <div className="absolute inset-y-0 left-0 w-full lg:w-[45%] bg-[#070e17] z-0 pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#070e17] to-transparent pointer-events-none z-0" />
 
       <div
         className="pointer-events-none absolute -inset-40 opacity-70 transition-opacity duration-500"
