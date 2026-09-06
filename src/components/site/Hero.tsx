@@ -32,19 +32,19 @@ export function Hero() {
       onPointerMove={onPointerMove}
       className="relative min-h-[100svh] overflow-hidden bg-ink text-white"
     >
-      {/* Full Hero Image (Uncropped display with smooth side gradient) */}
+      {/* Full Hero Image (New User Provided Picture) */}
       <div className="absolute inset-y-0 right-0 z-0 flex items-center justify-end w-full lg:w-[65%] xl:w-[60%] pointer-events-none overflow-hidden">
         <img
           src={heroImg}
-          alt="EVANYAG haulage truck at dusk with container terminal, cargo ship and freight aircraft"
+          alt="EVANYAG logistics operations - yellow and white haulage trucks, container vessel, and freight aircraft"
           width={1920}
           height={1280}
           className="w-full h-auto max-h-[92vh] object-contain object-right"
           fetchPriority="high"
         />
-        {/* Smooth Gradient Overlay fading left edge into background */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17] via-[#070e17]/40 to-transparent" />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17] via-transparent to-[#070e17]/30" />
+        {/* Soft edge gradient blend */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#070e17] via-[#070e17]/30 to-transparent" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#070e17] via-transparent to-[#070e17]/20" />
       </div>
 
       {/* Solid Left Side Overlay for Text Readability */}
